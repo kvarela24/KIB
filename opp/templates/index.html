@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>KiB | Dashboard</title>
+      <!-- Bootstrap core CSS -->
+      {% load staticfiles %}
+      
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type = "text/css"/>
+      <!-- Our own defined Css-->
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <!--mathquill-->
+      <link rel="stylesheet" href="{% static 'css/mathquill.css' %}"/>
+      <!--Our own JS that controls all interaction-->
+      <script src="{% static 'js/egen.js' %} "></script>
+      <!--Our appi that controls Vimeo videos-->
+      <script src="{% static 'js/froogaloop.js' %}"></script>
+      <!--Js written by us to conver latex to js-->
+      <script src="{% static 'js/lattojav.js'%}"></script>
+      <script src="{% static 'js/math.min.js' %}"></script>
+      <script src="{% static 'js/mathquill.js' %}"></script>
+      <script>
+         var MQ = MathQuill.getInterface(2);
+          
+      </script>
+      <!--mathjax-->
+      <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+         });
+      </script>
+      <script type="text/javascript" src=" {% static 'MathJax/MathJax.js' %}"></script>
+      
+      
+   </head>
+   <body;>
+   <!--header-->
+   <header  id="header" class="header-kib">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4">
+               <div  class="">
+                  <ul class="nav navbar-nav">
+                     <li class="yellow-right"  ><a href="index.html"><img class="ic" src="{% static 'pics/home.png' %}" alt="Paris"> Hjem</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div  class="right-side">
+                  <ul class="nav navbar-nav">
+                     <li class="yellow-right"  ><a href="index.html"><img class="ic" src="{% static 'pics/book.svg' %} " alt="Paris"> FAG</a></li>
+                     <li class="yellow-right"  ><a href="index.html"><img class="ic" src="{% static 'pics/message.svg' %} " alt="Paris"> Beskjeder</a></li>
+                     <li class="yellow-right"  ><a href="index.html"><img class="ic" src="{% static 'pics/prof.svg' %} " alt="Paris"> Profil</a></li>
+                     <li class="yellow-right"  ><a href="index.html"><img class="ic" src="{% static 'pics/search.png' %} " alt="Paris"> SOK</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+  <section id="main">
+    <div class="container">
+         <div class="row">
+            <!--Left Side-->
+            <div id="left-col" class="col-md-6">
+               <!--firstpanel-->  
+               <div class="panel  trans ">
+                  <div class="panel-heading ">
+                     <h3 class=" trans"><span class="yellow-bot">Oppgave 13</span></h3>
+                  </div>
+                  <div class="panel-body opaque37 ">
+                     <p> Finn ligningen til linja som gar gjennom punktene (2,6) og (0,-4) 
+                     <p>
+                  </div>
+               </div>
+               <!--second panel-->
+               <button type="button" class="btn button1"   id="steps-button" data-toggle="collapse" data-target="#steps" >Laer meg a   lose oppgaven 
+               </button>
+               <div class="panel panel-default  yellow">
+                  <!---collapsible panel--->
+                  <div id="steps" class="panel-body collapse yellow">
+                     <p> Ligningen til en linje er gitt med denne formelen: <br>
+                        y=<b>a</b>x+<b>b</b> <br>  Det vil si at vi vil finne stigninstallet <b>a</b> og konstantleddet <b>b</b> slik at de gitte punktene befinner seg
+                        pa den rette linja. Dette skal vi gjore i 4 skritt.
+                     </p>
+                     <!--Stepp 1-->
+                     <button type="button" id="b1"  class="btn btn-info stepb "  data-toggle="collapse" data-target="#s1 "  >
+                        <div class="numberCircle"><span>1</span></div>
+                        &nbsp Stigningstallet 
+                     </button>
+                     <div id="s1" class="step-panel collapse  ">
+                        Forst finner vi stigninstallet <b>a</b> ved a bruke formelen:
+                        <br>
+                        <p style="font-size:20px;"> <span id="pr2" style="color:red"> a</span><span id="pr"> =\frac{y_2-y_1}{x_2-x_1} </span>.</p>
+                        <script> quill("pr"); </script>
+                        <script> quill("pr2"); </script>
+                        <p>   med de gitte punktene
+                           $
+                           \begin{matrix}
+                           x_1\:\:\: y_1 \\ 
+                           (0,\:-4) \\
+                           \phantom{0}
+                           \end{matrix}
+                           $ og $
+                           \begin{matrix}
+                           x_2\:\:\: y_2 \\ 
+                           (2,\:\:\:6)  \\
+                           \phantom{0}
+                           \end{matrix}
+                           $  <br> <br>
+                           <b> Finn a ved a sette kordinatene til punktene i ligningen. </b>	 
+                        </p>
+                     </div>
+                     <!--sktitt1-->
+                     <button type="button" id="b2" class="btn btn-info stepb"  data-target="#s2">
+                        <div class="numberCircle"><span>2</span></div>
+                        &nbsp Ligning for $b$
+                     </button>
+                     <div id="s2" class="collapse">
+                        Sett inn verdien vi har funnet for stigningstallet i den opprinelige likgningen: $y = ax+b$
+                     </div>
+                     <!--sktitt2-->
+                     <button type="button" id="b3" class="btn btn-info stepb"  data-target="#s3 ">
+                        <div class="numberCircle"><span>3</span></div>
+                        &nbsp Los for <b>b</b>
+                     </button>
+                     <div id="s3" class="collapse step-panel">
+                        <p>Velg et punkt (2,6) eller (0,-4)  og erstatt $\mathbf{x}$ og $\mathbf{y}$ i ligningen $y=5x+b$ og los uttrykket for b.
+                        <p>
+                     </div>
+                     <!--skritt4-->
+                     <button type="button" id="b4" class="btn btn-info stepb"  data-target="#s4">
+                        <div class="numberCircle"> 
+                           <span>4</span>
+                        </div>
+                        &nbsp Sett verdiene i ligningen
+                     </button>
+                     <div id="s4" class="collapse">
+                        <p> Siste skritt er a skrive opp uttrykket for funksjonen ved a sette inn verdiene vi har funnet for stignnigstallet og konstanleddet.
+                        </p>
+                        <b>Sett disse verdiene i ligningen.</b>
+                     </div>
+                  </div>
+                  <!---collapsible panel --->
+               </div>
+               <!---panel--->
+            </div>
+            <!--col1-->
+            <!--right Side-->
+            <div class="col-md-6  trans" >
+               <div class="panel-heading">
+                  <h3 class="yellow-text">Svarfelt</h3>
+               </div>
+               <div id="right-col" class="affix right-col">
+                  <div class="panel trans " >
+                     <div class="panel-body panel-right  opaque37">
+                        <!--Answer without help	-->	 
+                        <div id="no-help">
+                           <p class="eqin"  ><span id="anh1" class="eqf" ></span></p>
+                           <p class="eqin"><span id="anh2" class="eqf"></span></p>
+                           <p class="eqin"><span id="anh3"class="eqf" ></span></p>
+                        </div>
+                        <div id="t0">
+                        </div>
+                        <div id="t1" class="es">
+                           <p class="ot"> 1) Finn a ved a sette verdiene til punktene i svarfeltet. 
+                           <p>
+                           <p class="eqin "><span id="fillT1" class="eqf" >a=\frac{\MathQuillMathField{}-\MathQuillMathField{} }{\MathQuillMathField{}- \MathQuillMathField{}}=\MathQuillMathField{} </span> <img id="check1" class="check" src="pics/check.png" ></p>
+                        </div>
+                        <div id="t2" class="es">
+                           <p class="ot"> 2) Sett inn verdien  for stigningstallet i ligningen 
+                           <p>
+                           <p class="eqin"><span id="fillT2" class="eqf" >y=\MathQuillMathField{}x+b </span> <img id="check2" class="check" src="pics/check.png" ></p>
+                        </div>
+                        <div id="t3" class="es">
+                           <p class="ot"> 3) Velg et av punktene  og los ligningen for b
+                           <p>
+                           <p class="eqin"><span id="ans3.0" class="eqf" >\MathQuillMathField{}=\MathQuillMathField{} \cdot 5+b</span> <img id="check3" class="check" src="pics/check.png" ></p>
+                           <p class="eqin"><span id="ans3.1" class="eqf" >b=</span><span id="ans3.2" class="eqf" ></span></p>
+                        </div>
+                        <div id="t4" class="es">
+                           <p class="ot"> 4) Sett inn konstanleddet og stigningstallet
+                           <p>
+                           <p class="eqin"><span id="ans4.0" class="eqf" >y=\MathQuillMathField{}x+\MathQuillMathField{}</span> <img id="check4" class="check" src="pics/check.png" ></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="progress">
+                     <div id="pbar" class="progress-bar   " role="progressbar"
+                        aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                     </div>
+                  </div>
+                 	
+                  <button type="button" class="btn button1" id="modal-video-button">Video losning</button>
+                  <button type="button" class="btn button1" id="check-answer" onclick="check();" >Sjekk svar</button>
+                  <div id="tes" class=" beacon eqin2"  ></div>
+                  <!--sett har-->
+               </div>
+            </div>
+            <!--right Side end-->
+         </div>
+         <!--row-->
+      </div>
+       	
+  </section>
+  <!-- Trigger/Open The Modal -->
+   <!--Quillin-->
+   <script>
+      quillin("anh1")
+      quillin("anh2")
+      quillin("anh3")
+      quill("ans3.1");
+      
+      
+   </script>
+   <!-- The Modal -->
+   <div id="modal-video" class="modal">
+   <!-- Modal content -->
+   <div class="modal-contents">
+      <span class="close">&times;</span>
+      <iframe id="vid" src="" width="640" height="358" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+   </div>
+   <footer id="footer">
+      <p>Copyright KiB, &copy; 2017</p>
+   </footer>
+  
+   <!-- Bootstrap core JavaScript
+      ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="{% static 'js/egen.js' %} "></script>
+   <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+   <script  src="{% static 'js/q1.js'  %}"></script>	
+   
+   
+   
+  
+   </body>
+</html>
